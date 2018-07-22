@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="situacao_vinculo">Situação do vinculo:</label>        
-                        <input type="date" class="form-control"  name="situacao_vinculo" id="situacao_vinculo" value="{{ \Auth::user()->situacao_vinculo }}">
+                        <input type="text" class="form-control"  name="situacao_vinculo" id="situacao_vinculo" value="{{ \Auth::user()->situacao_vinculo }}">
                     </div>
                 </div>
             </fieldset>
