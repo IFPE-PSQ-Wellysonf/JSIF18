@@ -7,8 +7,8 @@
 
         <title>Jogos Servidores IFPE</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        {{-- <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
 
         <!-- Styles -->
         <style>
@@ -78,16 +78,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    @auth
+                        <a href="{{ url('/home') }}"> <img src="{{ asset('img/logo.PNG') }}" style="max-width: 50vh;"></a>
+                    @else
+                        <a href="{{ route('login') }}"> <img src="{{ asset('img/logo.PNG') }}" style="max-width: 50vh;"></a>
+                    @endauth
                 </div>
 
-                <div class="links">
+                {{-- <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </body>

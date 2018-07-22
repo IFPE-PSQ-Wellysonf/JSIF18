@@ -10,14 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* 
+
 Route::get('/', function () {
     return view('welcome');
-}); */
+});
 
 Auth::routes();
-Route::get('/', 'auth\LoginController@showLoginForm');
-Route::get('/register', 'auth\LoginController@showLoginForm');
+/* Route::get('/', 'auth\LoginController@showLoginForm');
+Route::get('/register', 'auth\LoginController@showLoginForm'); */
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/endereco', 'ServidorController@endereco_index')->name('endereco');
 Route::put('/endereco', 'ServidorController@atualizar_endereco');
