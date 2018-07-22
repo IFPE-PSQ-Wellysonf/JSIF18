@@ -69,7 +69,7 @@ class ServidorController extends Controller
             DB::rollback();
             return redirect()->route('inscricao1')->withErrors(['Falha na inserção das modalidades. Favor entrar em contato com a comissão.']);
         }
-        return redirect()->route('inscricao1')->with('sucesso','As modalidades foram atualizadas e confirmadas.');
+        return redirect()->route('home')->with('sucesso','As modalidades foram atualizadas e confirmadas.');
     }
     public function perfil_index(){
         return view('perfil');
@@ -78,6 +78,6 @@ class ServidorController extends Controller
         \Auth::user()->update($request->all());
         \Auth::user()->endereco_confirmado = TRUE;
         \Auth::user()->save();
-        return redirect()->route('perfil')->with('sucesso','Seus enderço foi atualizado e confirmado.');
+        return redirect()->route('home')->with('sucesso','Seus enderço foi atualizado e confirmado.');
     }
 }

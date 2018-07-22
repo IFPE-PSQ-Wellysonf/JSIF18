@@ -67,7 +67,7 @@ class ModalidadesSeeder extends Seeder
                     'modalidade' => 'Jogos populares - Arremesso de 3',
                 ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Pela corda',
+                    'modalidade' => 'Jogos populares - Pula corda',
                 ]);
         Modalidades::create([
                     'modalidade' => 'Jogos populares - Bambolê',

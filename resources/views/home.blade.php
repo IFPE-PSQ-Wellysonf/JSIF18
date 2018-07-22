@@ -7,13 +7,23 @@
 @stop
 
 @section('content')
+
     <div class="row">
+         @if (session('sucesso'))
+        <div class="col-md-12 col-xs-12">
+            <div class="alert alert-success alert-dismissible" id="alerta_sucesso">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+                <p>{{ session('sucesso') }}</p>
+            </div>
+        </div>
+        @endif
         {{-- Box de validação do endereço --}}
         <div class="col-md-3">
             @if(\Auth::user()->endereco_confirmado)
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>SIM</h3>
+                    <h3>OK</h3>
             @else
             <div class="small-box bg-red">
                     <div class="inner">
@@ -32,7 +42,7 @@
             @if(!is_null(\Auth::user()->email))
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>SIM</h3>
+                    <h3>OK</h3>
             @else
             <div class="small-box bg-red">
                     <div class="inner">
@@ -76,7 +86,7 @@
             <div class="small-box bg-gray">
                 <div class="inner">
                     <h3>@if(\Auth::user()->solicitou_diarias) Sim  @else Não @endif</h3>
-                    <p>Necessito de diárias</p>
+                    <p>Necessito de hospedagem</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-fw fa-home"></i>
@@ -101,4 +111,11 @@
             </ul>
         </div>
     </div>
+@stop
+@section('js')
+    <script>
+        @if (session('sucesso'))
+            $('#alerta_sucesso').delay(3000).slideUp(500);
+        @endif
+    </script>
 @stop
