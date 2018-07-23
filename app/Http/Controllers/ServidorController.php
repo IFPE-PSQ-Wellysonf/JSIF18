@@ -75,12 +75,15 @@ class ServidorController extends Controller
         return view('perfil');
     }
     public function atualizar_perfil(Request $request){
-        if(\Auth::user()->email != $request->email){
-            \Mail::to(\Auth::user())->queue(new \App\Mail\EmailUpdated(\Auth::user()));
-        }
+        $email_backup = \Auth::user()->email;
         \Auth::user()->update($request->all());
         \Auth::user()->endereco_confirmado = TRUE;
         \Auth::user()->save();
+        if(\Auth::user()->email != $email_backup){
+            if(!is_null(\Auth::user()->email)){
+                \Mail::to(\Auth::user())->queue(new \App\Mail\EmailUpdated(\Auth::user()));
+            }
+        }
         return redirect()->route('home')->with('sucesso','Seus enderço foi atualizado e confirmado.');
     }
 }
