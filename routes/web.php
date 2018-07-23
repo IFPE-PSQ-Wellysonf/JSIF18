@@ -25,4 +25,7 @@ Route::get('/inscricao', 'ServidorController@inscricao1_index')->name('inscricao
 Route::post('/inscricao', 'ServidorController@inscricao1_store');
 Route::get('/perfil', 'ServidorController@perfil_index')->name('perfil');
 Route::put('/perfil', 'ServidorController@atualizar_perfil');
+Route::get('/email', function () {
+    return view('email.updatedemail');
+});
 

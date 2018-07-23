@@ -3,7 +3,7 @@
 @section('title', 'Jogos Servidores IFPE')
 
 @section('content_header')
-    <h1>Jogos dos Servidores IFPE 2018</h1>
+    {{-- <h1>Jogos dos Servidores IFPE 2018</h1> --}}
 @stop
 
 @section('content')
@@ -109,6 +109,12 @@
                 <li>O V Jogos dos servidores do IFPE ocorrerão no município de Recife e região metropolitana no período de 03 a 05 de outubro e de 08 a 10 de outubro de 2018.</li>
                 <li>Para participação no evento é obrigatória a pré-inscrição no período de 24 de julho a 24 de agosto de 2018. Posteriormente, os servidores receberão um email em seu email institucional (esse dado deverá ser informado obrigatóriamente nesta pré inscrição clicando <a href="{{ route('perfil') }}" target="_self">AQUI</a>) a fim de confirmar a inscrição no evento e nas modalidades previamente selecionadas.</li>
             </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <samp>Em caso de dúvidas ou sugestões, favor entrar em contato: <a href="mailto:ddqv@reitoria.ifpe.edu.br">ddqv@reitoria.ifpe.edu.br</a></samp>
         </div>
     </div>
 @stop

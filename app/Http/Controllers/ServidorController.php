@@ -75,6 +75,9 @@ class ServidorController extends Controller
         return view('perfil');
     }
     public function atualizar_perfil(Request $request){
+        if(\Auth::user()->email != $request->email){
+            \Mail::to(\Auth::user())->queue(new \App\Mail\EmailUpdated(\Auth::user()));
+        }
         \Auth::user()->update($request->all());
         \Auth::user()->endereco_confirmado = TRUE;
         \Auth::user()->save();
