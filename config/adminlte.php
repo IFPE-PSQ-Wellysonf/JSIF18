@@ -110,6 +110,12 @@ return [
     'menu' => [
         'MENU',
         [
+            'text' => 'Administração',
+            'route'  => 'admin',
+            'icon' => 'cog',
+            'can' => 'admin',
+        ],
+        [
             'text' => 'Dados Pessoais',
             'route'  => 'perfil',
             'icon' => 'user-o',
