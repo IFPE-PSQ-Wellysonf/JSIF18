@@ -22,4 +22,30 @@ class AdminController extends Controller
         $modalidades = Modalidades::orderBy('modalidade')->get();
         return view('admin.home', compact('inscricoes','modalidades'));
     }
+    public function detalhe_esporte($id)
+    {
+        $rmr = [ 'RECIFE',
+            'JABOATÃO DOS GUARARAPES',
+            'OLINDA',
+            'PAULISTA',
+            'CABO DE SANTO AGOSTINHO',
+            'CAMARAGIBE',
+            'SÃO LOURENÇO DA MATA',
+            'IGARASSU',
+            'ABREU E LIMA',
+            'IPOJUCA',
+            'GOIANA',
+            'ESCADA',
+            'MORENO',
+            'SIRINHAÉM',
+            'ITAPISSUMA',
+            'ILHA DE ITAMARACÁ',
+            'ARAÇOIABA',
+        ];
+        $modalidade = Modalidades::find($id);
+        $inscricoes = Inscricao::where('modalidade_id',$id)
+                                ->with('user')
+                                ->get();
+        return view('admin.esporte', compact('inscricoes','modalidade','rmr'));
+    }
 }

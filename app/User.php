@@ -27,6 +27,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+    public function getDiariaAttribute($value){
+        if($this->attributes['solicitou_diarias']){
+            return 'Sim, Solicitou.';
+        }else{
+            return 'Não';
+        }
+    }
+    
     /* Relacionamentos N:1 */
     public function campus()
 	{
