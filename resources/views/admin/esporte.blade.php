@@ -19,8 +19,8 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Email</th>
-                        <th>Residente</th>
+                        <th class="hidden-xs hidden-sm">Email</th>
+                        <th class="hidden-xs hidden-sm">Residente</th>
                         <th>Hospedagem</th>
                     </tr>
                 </thead>
@@ -28,8 +28,8 @@
                     @foreach($inscricoes as $inscricao)
                     <tr>
                         <td>{{$inscricao->user->name}}</td>
-                        <td>{{$inscricao->user->email}}</td>
-                        <td>{{$inscricao->user->endereco_municipio}}</td>
+                        <td class="hidden-xs hidden-sm">{{$inscricao->user->email}}</td>
+                        <td class="hidden-xs hidden-sm">{{$inscricao->user->endereco_municipio}}</td>
                         @if(in_array(strtoupper($inscricao->user->endereco_municipio), $rmr))
                         <td>Reside na região metropolitana</td>
                         @else
