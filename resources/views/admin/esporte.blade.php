@@ -69,8 +69,7 @@
                         },
                         pageLength: 10,
                         "bLengthChange" : true,
-                        "aaSorting": [],
-                        //"order": [[ 1, "asc" ]],
+                        "order": [[ 0, "asc" ]],
                         
                     });
         } );
