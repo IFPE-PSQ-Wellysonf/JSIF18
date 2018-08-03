@@ -13,6 +13,56 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>&nbsp;</th>
+                        <th>Inscrições</th>
+                        <th>RMR</th>
+                        <th>Demais Regiões</th>
+                        <th>Solicitou hospedagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Feminino</th>
+                        <td>{{count($insc_group->where('user.sexo','F')) }}</td>
+                        <td>{{count($insc_group->where('user.sexo','F')->whereIn('user.endereco_municipio',$rmr)) }}</td>
+                        <td>{{count($insc_group->where('user.sexo','F')->whereNotIn('user.endereco_municipio',$rmr)) }}</td>
+                        <td>{{count($insc_group->where('user.sexo','F')->whereNotIn('user.endereco_municipio',$rmr)->where('user.solicitou_diarias',TRUE)) }}</td>
+                    </tr>
+                    <tr>
+                        <th>Masculino</th>
+                        <td>{{count($insc_group->where('user.sexo','M')) }}</td>
+                        <td>{{count($insc_group->where('user.sexo','M')->whereIn('user.endereco_municipio',$rmr)) }}</td>
+                        <td>{{count($insc_group->where('user.sexo','M')->whereNotIn('user.endereco_municipio',$rmr)) }}</td>
+                        <td>{{count($insc_group->where('user.sexo','M')->whereNotIn('user.endereco_municipio',$rmr)->where('user.solicitou_diarias',TRUE)) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="help-block">*RMR - Região Metropolitana do Recife.</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Campus</th>
+                        <th>Homens</th>
+                        <th>Mulheres</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($campi as $campus)
+                    <tr>
+                        <td>{{$campus->campus}}</td>
+                        <td>{{count($insc_group->where('user.sexo','M')->where('user.campus_id',$campus->id))}}</td>
+                        <td>{{count($insc_group->where('user.sexo','F')->where('user.campus_id',$campus->id))}}</td>
+                        <td>{{count($insc_group->where('user.campus_id',$campus->id))}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
                         <th>Modalidade</th>
                         <th>Qtd Inscritos</th>
                     </tr>
