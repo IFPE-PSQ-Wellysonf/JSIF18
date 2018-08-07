@@ -38,6 +38,16 @@ class AdminController extends Controller
                                 ->get();
         return view('admin.esporte', compact('inscricoes','modalidade','rmr'));
     }
+    public function detalhe_campus($id)
+    {
+        $rmr = $this->rmr;
+        $campus = Campus::findOrFail($id);
+        $inscricoes = Inscricao::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
+                                ->with('user')
+                                ->groupBy('user_id')
+                                ->get();
+        return view('admin.campus', compact('inscricoes','campus','rmr'));
+    }
     public $rmr = [ 'RECIFE',
             'JABOATÃO DOS GUARARAPES',
             'OLINDA',

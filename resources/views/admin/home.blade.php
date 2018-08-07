@@ -50,7 +50,16 @@
                 <tbody>
                     @foreach($campi as $campus)
                     <tr>
-                        <td>{{$campus->campus}}</td>
+                        <td>
+                            <a href="{{route('campus', $campus)}}">
+                                {{$campus->campus}}
+                            </a>
+                            {{-- @if( count($insc_group->where('user.campus_id',$campus->id)) > 0 )
+                            
+                            @else
+                                {{$campus->campus}}
+                            @endif --}}
+                        </td>
                         <td>{{count($insc_group->where('user.sexo','M')->where('user.campus_id',$campus->id))}}</td>
                         <td>{{count($insc_group->where('user.sexo','F')->where('user.campus_id',$campus->id))}}</td>
                         <td>{{count($insc_group->where('user.campus_id',$campus->id))}}</td>

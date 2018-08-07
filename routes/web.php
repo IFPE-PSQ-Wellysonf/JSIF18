@@ -27,4 +27,5 @@ Route::get('/perfil', 'ServidorController@perfil_index')->name('perfil');
 Route::put('/perfil', 'ServidorController@atualizar_perfil');
 Route::get('/admin', 'AdminController@home')->name('admin');
 Route::get('/admin/{id}', 'AdminController@detalhe_esporte')->name('esporte');
+Route::get('/admin/campus/{id}', 'AdminController@detalhe_campus')->name('campus');
 
