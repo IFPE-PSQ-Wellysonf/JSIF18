@@ -115,11 +115,11 @@ return [
             'icon' => 'cog',
             'can' => 'admin',
         ],
-        [
+        /* [
             'text' => 'Dados Pessoais',
             'route'  => 'perfil',
             'icon' => 'user-o',
-        ],
+        ], */
         [
             'text' => 'Inscrição',
             'route'  => 'inscricao1',

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Inscricao;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('admin', function ($user) {
             return $user->admin ;
+        });
+
+        Gate::define('preinscricao', function ($user) {
+            return 0 < Inscricao::where('user_id', $user->id)->count();
         });
     }
 }

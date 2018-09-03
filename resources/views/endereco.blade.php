@@ -18,6 +18,15 @@
         </div>
     </div>
     @endif
+    @if ($errors->any())
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-warning"></i> Atenção:</h4>
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach 
+        </div>
+    @endif
     <div class="col-md-12">
         <form action="{{ route('endereco') }}" method="post" class="form">
             {{ method_field('PUT')}}
