@@ -68,6 +68,9 @@ class AdminController extends Controller
                 }catch (Exception $e){
                     $msgError[$cont]= "Erro $cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ") ". $e->getMessage();
                     $contError++;
+                }catch (\Swift_RfcComplianceException $e){
+                    $msgError[$cont]= "Erro $cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ") ". $e->getMessage();
+                    $contError++;
                 }
                 
             }
