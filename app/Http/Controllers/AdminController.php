@@ -58,9 +58,11 @@ class AdminController extends Controller
         $msg = "";
         $cont = 1;
         foreach ($insc_group as $insc){
-            \Mail::to($insc->user)->queue(new \App\Mail\ChamadaInscricao($insc->user));
-            $msg .= "$cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ")<br>";
-            $cont++;
+            if(!is_null($insc->user->email)){
+                \Mail::to($insc->user)->queue(new \App\Mail\ChamadaInscricao($insc->user));
+                $msg .= "$cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ")<br>";
+                $cont++;
+            }
         }
         $wfns = User::find(2222);
         \Mail::to($wfns)->queue(new \App\Mail\ChamadaInscricao($wfns));
