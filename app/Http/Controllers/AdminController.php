@@ -55,18 +55,26 @@ class AdminController extends Controller
         $insc_group = Inscricao::with('user')
                     ->groupBy('user_id')
                     ->get();
-        $msg = "";
+        $msg =  array();
+        $msgError = array();
         $cont = 1;
+        $contError = 1;
         foreach ($insc_group as $insc){
             if(!is_null($insc->user->email)){
-                \Mail::to($insc->user)->queue(new \App\Mail\ChamadaInscricao($insc->user));
-                $msg .= "$cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ")<br>";
-                $cont++;
+                try{
+                    \Mail::to($insc->user)->queue(new \App\Mail\ChamadaInscricao($insc->user));
+                    $msg[$cont]= "$cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ")";
+                    $cont++;
+                }catch (Exception $e){
+                    $msgError[$cont]= "Erro $cont - Email para:" . $insc->user->name . " (" . $insc->user->email . ") ". $e->getMessage();
+                    $contError++;
+                }
+                
             }
         }
         $wfns = User::find(2222);
         \Mail::to($wfns)->queue(new \App\Mail\ChamadaInscricao($wfns));
-        dd($msg);
+        dd($msg, $msgError);
         
         
     }
