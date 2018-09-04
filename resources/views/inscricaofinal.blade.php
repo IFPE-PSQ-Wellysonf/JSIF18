@@ -113,8 +113,8 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td>Voleibol</td>
-                            <td>Futcolei</td>
+                            <td>Vôlei de quadra</td>
+                            <td>Futvôlei</td>
                             <td>Dominó</td>
                             <td>Badminton</td>
                             <td>Jogos Eletrônicos</td>

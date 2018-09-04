@@ -66,11 +66,11 @@ class ServidorController extends Controller
         $agora = Carbon::now();
         if ($agora->lt($data_inicial_insc)){
             $msg_erro = 'As inscrições ainda não estão abertas.';
-            return redirect()->route('inscricao1')->withErrors([$msg_erro]);
+            return redirect()->route('preinscricao')->withErrors([$msg_erro]);
         }
         if ($agora->gt($data_final_insc)){
             $msg_erro = 'As inscrições estão encerradas.';
-            return redirect()->route('inscricao1')->withErrors([$msg_erro]);
+            return redirect()->route('preinscricao')->withErrors([$msg_erro]);
         }
         DB::beginTransaction();
         try{
@@ -82,7 +82,7 @@ class ServidorController extends Controller
                         'modalidade_id' => $modalidade
                     ]);
                 }
-            }
+            } 
             if(isset($request->diarias) && $request->diarias == 'sim'){
                 \Auth::user()->solicitou_diarias = 1;
                 \Auth::user()->save();
@@ -93,7 +93,7 @@ class ServidorController extends Controller
             DB::commit();
         }catch (\Exception $e) {
             DB::rollback();
-            return redirect()->route('inscricao1')->withErrors(['Falha na inserção das modalidades. Favor entrar em contato com a comissão.']);
+            return redirect()->route('preinscricao')->withErrors(['Falha na inserção das modalidades. Favor entrar em contato com a comissão.']);
         }
         return redirect()->route('home')->with('sucesso','As modalidades foram atualizadas e confirmadas.');
     }

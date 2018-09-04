@@ -28,7 +28,7 @@
         </div>
     @endif
     <div class="col-md-6 col-md-offset-1">
-        <form action="{{ route('inscricao1') }}" method="post" class="form">
+        <form action="{{ route('preinscricao') }}" method="post" class="form">
             {{ csrf_field() }}
             <div class="row">
                 <div class="form-group">

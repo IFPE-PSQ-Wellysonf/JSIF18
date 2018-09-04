@@ -124,8 +124,9 @@
             <h3>Informes:</h3>
             <ul>
                 <li>No(a) caso de não comparecimento do(a) atleta que solicitar hospedagem, o (a) mesmo(a) poderá ter que vir a ressarcir ao erário público através de GRU;</li>
-                <li>Caso o(a) atleta não compareça às modalidades para a(s) qual(is) se inscreveu, poderá ser penalizado com a não participação na próxima edição do evento;</li>
+                {{--  <li>Caso o(a) atleta não compareça a(s) modalidade(s) para a(s) qual(is) se inscreveu, poderá ser penalizado com a não participação na próxima edição do evento;</li>  --}}
                 <li>Caso o(a) atleta não apresente ao(a) representante do Núcleo de Esporte e Lazer de seu campi os exames médicos com parecer de aptidão para realização de atividade física, deverá assinar o "Termo de Responsabilidade e Compromisso" para poder participar do evento;</li>
+                <li>O(a) atleta deve observar o cronograma do evento antes de realizar a inscrição, pois haverá momentos em que modalidades ocorrerão concomitantemente;</li>
                 <li>O(a) atleta deve portar durante o evento um documento oficial com foto.</li>
             </ul>
             {{-- <ul>
@@ -170,8 +171,8 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Voleibol</td>
-                        <td>Futcolei</td>
+                        <td>Vôlei de quadra</td>
+                        <td>Futvôlei</td>
                         <td>Dominó</td>
                         <td>Badminton</td>
                         <td>Jogos Eletrônicos</td>
