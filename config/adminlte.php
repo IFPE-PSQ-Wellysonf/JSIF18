@@ -109,11 +109,25 @@ return [
 
     'menu' => [
         'MENU',
-        [
+        /* [
             'text' => 'Administração',
             'route'  => 'admin',
             'icon' => 'cog',
             'can' => 'admin',
+        ], */
+        [
+            'text'    => 'Administração',
+            'icon'    => 'cog',
+            'submenu' => [
+                [
+                    'text' => 'Inscrições',
+                    'route'  => 'admin',
+                ],
+                [
+                    'text' => 'Pré-inscrição',
+                    'route'  => 'admin.pre',
+                ],
+            ],
         ],
         /* [
             'text' => 'Dados Pessoais',

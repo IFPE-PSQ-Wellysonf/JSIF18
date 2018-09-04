@@ -27,8 +27,11 @@ Route::get('/inscricao', 'ServidorController@inscricao_final')->name('inscricao1
 Route::post('/inscricao', 'ServidorController@inscricao_final_store');
 Route::get('/perfil', 'ServidorController@perfil_index')->name('perfil');
 Route::put('/perfil', 'ServidorController@atualizar_perfil');
-Route::get('/admin', 'AdminController@home')->name('admin');
-Route::get('/admin/esporte/{id}', 'AdminController@detalhe_esporte')->name('esporte');
-Route::get('/admin/campus/{id}', 'AdminController@detalhe_campus')->name('campus');
+Route::get('/admin/pre', 'AdminController@home')->name('admin.pre');
+Route::get('/admin/pre/esporte/{id}', 'AdminController@detalhe_esporte')->name('esporte.pre');
+Route::get('/admin/pre/campus/{id}', 'AdminController@detalhe_campus')->name('campus.pre');
+Route::get('/admin', 'AdminController@home_inscricao')->name('admin');
+Route::get('/admin/esporte/{id}', 'AdminController@detalhe_esporte_inscricao')->name('esporte');
+Route::get('/admin/campus/{id}', 'AdminController@detalhe_campus_inscricao')->name('campus');
 Route::get('/admin/enviaremails/', 'AdminController@enviar_emails');
 

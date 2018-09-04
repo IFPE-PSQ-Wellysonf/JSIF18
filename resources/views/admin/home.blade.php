@@ -4,6 +4,11 @@
 
 @section('content_header')
     <h1>Jogos dos Servidores IFPE 2018</h1>
+    @if($pre)
+    <h3>Pré-inscrição</h3>
+    @else
+    <h3>Inscrição</h3>
+    @endif  
     <h4>Painel de acompanhamento</h4>
 @stop
 
@@ -51,7 +56,11 @@
                     @foreach($campi as $campus)
                     <tr>
                         <td>
+                            @if($pre)
+                            <a href="{{route('campus.pre', $campus)}}">
+                            @else
                             <a href="{{route('campus', $campus)}}">
+                            @endif
                                 {{$campus->campus}}
                             </a>
                             {{-- @if( count($insc_group->where('user.campus_id',$campus->id)) > 0 )
@@ -81,13 +90,21 @@
                         $sum_inscricoes = 0;
                     @endphp
                     @foreach($inscricoes as $inscricao)
+                    @if((!$pre && ($modalidades->where('id',$inscricao->modalidade_id)->count()>0)) || $pre)
                     <tr>
-                        <td><a href="{{route('esporte',$modalidades->where('id',$inscricao->modalidade_id)->first() )}}">{{$modalidades->where('id',$inscricao->modalidade_id)->first()->modalidade}}</a></td>
+                        <td>
+                            @if($pre)
+                            <a href="{{route('esporte.pre',$modalidades->where('id',$inscricao->modalidade_id)->first() )}}">{{$modalidades->where('id',$inscricao->modalidade_id)->first()->modalidade}}</a>
+                            @else
+                            <a href="{{route('esporte',$modalidades->where('id',$inscricao->modalidade_id)->first() )}}">{{$modalidades->where('id',$inscricao->modalidade_id)->first()->modalidade}}</a>
+                            @endif
+                        </td>
                         <td>{{$inscricao->qtd}}</td>
                         @php
                             $sum_inscricoes += $inscricao->qtd;
                         @endphp
                     </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>
