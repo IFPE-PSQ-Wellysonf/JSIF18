@@ -118,6 +118,7 @@ return [
         [
             'text'    => 'Administração',
             'icon'    => 'cog',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text' => 'Inscrições',
