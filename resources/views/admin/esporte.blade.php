@@ -20,7 +20,7 @@
                     <tr>
                         <th>Nome</th>
                         <th class="hidden-xs hidden-sm">Email</th>
-                        <th class="hidden-xs hidden-sm">Residente</th>
+                        {{-- <th class="hidden-xs hidden-sm">Residente</th> --}}
                         <th class="hidden-xs hidden-sm">Campus</th>
                         <th class="hidden-xs hidden-sm">Sexo</th>
                         <th class="hidden-xs hidden-sm">idade</th>
@@ -32,7 +32,7 @@
                     <tr>
                         <td>{{$inscricao->user->name}}</td>
                         <td class="hidden-xs hidden-sm">{{$inscricao->user->email}}</td>
-                        <td class="hidden-xs hidden-sm">{{$inscricao->user->endereco_municipio}}</td>
+                        {{-- <td class="hidden-xs hidden-sm">{{$inscricao->user->endereco_municipio}}</td> --}}
                         <td class="hidden-xs hidden-sm">{{$inscricao->user->campus->campus}}</td>
                         <td class="hidden-xs hidden-sm">
                             @if($inscricao->user->sexo == 'M')
