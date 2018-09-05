@@ -21,7 +21,9 @@
                         <th>Nome</th>
                         <th class="hidden-xs hidden-sm">Email</th>
                         <th class="hidden-xs hidden-sm">Residente</th>
+                        <th class="hidden-xs hidden-sm">Campus</th>
                         <th class="hidden-xs hidden-sm">Sexo</th>
+                        <th class="hidden-xs hidden-sm">idade</th>
                         <th>Hospedagem</th>
                     </tr>
                 </thead>
@@ -31,6 +33,7 @@
                         <td>{{$inscricao->user->name}}</td>
                         <td class="hidden-xs hidden-sm">{{$inscricao->user->email}}</td>
                         <td class="hidden-xs hidden-sm">{{$inscricao->user->endereco_municipio}}</td>
+                        <td class="hidden-xs hidden-sm">{{$inscricao->user->campus->campus}}</td>
                         <td class="hidden-xs hidden-sm">
                             @if($inscricao->user->sexo == 'M')
                                 Masculino
@@ -38,6 +41,7 @@
                                 Feminino
                             @endif
                         </td>
+                        <td class="hidden-xs hidden-sm">{{$inscricao->user->idade}}</td>
                         @if(in_array(strtoupper($inscricao->user->endereco_municipio), $rmr))
                         <td>Reside na região metropolitana</td>
                         @else

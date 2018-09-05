@@ -37,7 +37,7 @@ class AdminController extends Controller
         $rmr = $this->rmr;
         $modalidade = Modalidades::find($id);
         $inscricoes = Inscricao::where('modalidade_id',$id)
-                                ->with('user')
+                                ->with('user.campus')
                                 ->get();
         return view('admin.esporte', compact('inscricoes','modalidade','rmr','pre'));
     }
@@ -47,7 +47,7 @@ class AdminController extends Controller
         $rmr = $this->rmr;
         $campus = Campus::findOrFail($id);
         $inscricoes = Inscricao::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
-                                ->with('user')
+                                ->with('user.campus')
                                 ->groupBy('user_id')
                                 ->get();
         return view('admin.campus', compact('inscricoes','campus','rmr','pre'));
@@ -72,7 +72,7 @@ class AdminController extends Controller
         $rmr = $this->rmr;
         $modalidade = Modalidades::find($id);
         $inscricoes = Inscricaofinal::where('modalidade_id',$id)
-                                ->with('user')
+                                ->with('user.campus')
                                 ->get();
         return view('admin.esporte', compact('inscricoes','modalidade','rmr','pre'));
     }
@@ -82,7 +82,7 @@ class AdminController extends Controller
         $rmr = $this->rmr;
         $campus = Campus::findOrFail($id);
         $inscricoes = Inscricaofinal::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
-                                ->with('user')
+                                ->with('user.campus')
                                 ->groupBy('user_id')
                                 ->get();
         return view('admin.campus', compact('inscricoes','campus','rmr','pre'));

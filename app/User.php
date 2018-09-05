@@ -34,6 +34,13 @@ class User extends Authenticatable
             return 'Não';
         }
     }
+    public function getIdadeAttribute(){
+        $tz  = new \DateTimeZone(config('app.timezone', 'America/Recife'));
+        $age = \DateTime::createFromFormat('Y-m-d', $this->attributes['nascimento'], $tz)
+                    ->diff(new \DateTime('now', $tz))
+                    ->y;
+        return $age;
+    }
     
     /* Relacionamentos N:1 */
     public function campus()
