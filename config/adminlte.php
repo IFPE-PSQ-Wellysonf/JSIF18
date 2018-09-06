@@ -128,6 +128,10 @@ return [
                     'text' => 'Pré-inscrição',
                     'route'  => 'admin.pre',
                 ],
+                [
+                    'text' => 'Relatórios',
+                    'route'  => 'relatorios',
+                ],
             ],
         ],
         /* [

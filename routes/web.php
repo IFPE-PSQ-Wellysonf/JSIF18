@@ -34,4 +34,6 @@ Route::get('/admin', 'AdminController@home_inscricao')->name('admin');
 Route::get('/admin/esporte/{id}', 'AdminController@detalhe_esporte_inscricao')->name('esporte');
 Route::get('/admin/campus/{id}', 'AdminController@detalhe_campus_inscricao')->name('campus');
 Route::get('/admin/enviaremails/', 'AdminController@enviar_emails');
+Route::get('/admin/relatorios/', 'AdminController@relatorios_home')->name('relatorios');
+Route::get('/admin/relatorios/campus', 'AdminController@relatorios_campus')->name('relatorios.campus');
 

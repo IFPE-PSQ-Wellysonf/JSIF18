@@ -115,9 +115,26 @@ class AdminController extends Controller
         }
         $wfns = User::find(2222);
         \Mail::to($wfns)->queue(new \App\Mail\ChamadaInscricao($wfns));
-        dd($msg, $msgError);
-        
-        
+        dd($msg, $msgError); 
+    }
+
+    public function relatorios_home()
+    {
+        return view('admin.relatorios');
+    }
+
+    public function relatorios_campus()
+    {
+        $campi = Campus::all();
+        $inscritos = Inscricaofinal::with('user')
+                                ->groupBy('user_id')
+                                ->get();
+        return view('admin.relat.campus', compact('campi','inscritos'));
+        /* $view = \View::make('admin.relat.campus', compact('campi','inscritos'));
+        $contents = $view->render();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($contents);
+        return $mpdf->Output(); */
     }
 
     public $rmr = [ 'RECIFE',
