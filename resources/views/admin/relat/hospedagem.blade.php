@@ -19,7 +19,7 @@
             <h1>Relação de inscritos</h1>
             <h2><i>Dia</i>  {{ $dia }}</h2>
             @if(count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo','F')->where('user.solicitou_diarias',TRUE)) > 0 )
-                <h3>Quantidade total de inscritos do sexo Feminino: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo','F')->where('user.solicitou_diarias',TRUE)) }}</b></h3>
+                <h3>Quantidade total de inscritos do sexo Feminino: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo','F')->where('user.solicitou_diarias',TRUE)->unique('user_id')) }}</b></h3>
                 <table>
                     <thead>
                         <tr>
@@ -45,7 +45,7 @@
                 <h3 class="erro"><b>Obs.:</b> Não há inscritos neste <i>Campus</i></h3>
             @endif
             @if(count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo', 'M')->where('user.solicitou_diarias',TRUE)) > 0 )
-                <h3>Quantidade total de inscritos do sexo Masculino: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo', 'M')->where('user.solicitou_diarias',TRUE)) }}</b></h3>
+                <h3>Quantidade total de inscritos do sexo Masculino: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo', 'M')->where('user.solicitou_diarias',TRUE)->unique('user_id')) }}</b></h3>
                 <table>
                     <thead>
                         <tr>

@@ -19,7 +19,7 @@
             <h1>Relação de inscritos</h1>
             <h2><i>Dia</i>  {{ $dia }}</h2>
             @if(count($inscritos->whereIn('modalidade_id', $modalidades)) > 0 )
-                <h3>Quantidade total de inscritos: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)) }}</b></h3>
+                <h3>Quantidade total de inscritos: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)->unique('user_id')) }}</b></h3>
                 <table>
                     <thead>
                         <tr>
