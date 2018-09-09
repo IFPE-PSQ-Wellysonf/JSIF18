@@ -1,10 +1,10 @@
 @extends('admin.relat.template')
 
-@section('titulo', 'Relação de Inscritos por Campus')
+@section('titulo', 'Relação de Inscritos para controle de hospedagem')
 
 @section('corpo')
-    @php $primeira = TRUE; @endphp
-    @foreach($campi as $campus)
+    @php $primeira = TRUE;@endphp
+    @foreach($datas as $dia => $modalidades)
         @if($primeira)
             @php $primeira = FALSE; @endphp
         @else
@@ -17,9 +17,9 @@
         </header>
         <section>
             <h1>Relação de inscritos</h1>
-            <h2><i>Campus</i>  {{ $campus->campus }}</h2>
-            @if(count($inscritos->where('user.campus_id', $campus->id)) > 0 )
-                <h3>Quantidade total de inscritos: <b>{{ count($inscritos->where('user.campus_id', $campus->id)) }}</b></h3>
+            <h2><i>Dia</i>  {{ $dia }}</h2>
+            @if(count($inscritos->whereIn('modalidade_id', $modalidades)) > 0 )
+                <h3>Quantidade total de inscritos: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)) }}</b></h3>
                 <table>
                     <thead>
                         <tr>
@@ -32,7 +32,7 @@
                         $cont = 1;
                     @endphp
                     <tbody>
-                        @foreach($inscritos->where('user.campus_id', $campus->id)->sortBy('user.nomeAnsi') as $inscrito)
+                        @foreach($inscritos->whereIn('modalidade_id', $modalidades)->sortBy('user.nomeAnsi') as $inscrito)
                             <tr>
                                 <td class='centralizar'>{{ $cont++ }}</td>
                                 <td class='centralizar'>{{ $inscrito->user->siape }}</td>

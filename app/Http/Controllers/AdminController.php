@@ -129,12 +129,64 @@ class AdminController extends Controller
         $inscritos = Inscricaofinal::with('user')
                                 ->groupBy('user_id')
                                 ->get();
-        return view('admin.relat.campus', compact('campi','inscritos'));
-        /* $view = \View::make('admin.relat.campus', compact('campi','inscritos'));
+        $view = \View::make('admin.relat.campus', compact('campi','inscritos'));
         $contents = $view->render();
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->WriteHTML($contents);
-        return $mpdf->Output(); */
+        return $mpdf->Output();
+    }
+    public function relatorios_por_dia_sexo()
+    {
+        
+        $campi = Campus::all();
+        $inscritos = Inscricaofinal::with('user')
+                                ->get();
+        $datas = $this->modalidadesData();
+        /* return view('admin.relat.hospedagem', compact('campi','inscritos','datas')); */
+        $view = \View::make('admin.relat.hospedagem', compact('campi','inscritos','datas'));
+        $contents = $view->render();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($contents);
+        return $mpdf->Output();
+    }
+    public function relatorios_alimentacao()
+    {
+        
+        $campi = Campus::all();
+        $inscritos = Inscricaofinal::with('user')
+                                ->get();
+        $datas = $this->modalidadesData();
+        /* return view('admin.relat.hospedagem', compact('campi','inscritos','datas')); */
+        $view = \View::make('admin.relat.alimentacao', compact('campi','inscritos','datas'));
+        $contents = $view->render();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($contents);
+        return $mpdf->Output();
+    }
+    public function relatorios_hospedagem()
+    {
+        
+        $campi = Campus::all();
+        $inscritos = Inscricaofinal::with('user')
+                                ->get();
+        $datas = $this->modalidadesData();
+        /* return view('admin.relat.hospedagem', compact('campi','inscritos','datas')); */
+        $view = \View::make('admin.relat.hospedagem', compact('campi','inscritos','datas'));
+        $contents = $view->render();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($contents);
+        return $mpdf->Output();
+    }
+    public function modalidadesData()
+    {
+        $dia = [];
+        $dia[3]= [1];
+        $dia[4] = [8,12];
+        $dia[5] = [5,6,8];
+        $dia[8] = [9,11,13];
+        $dia[9] = [2.4,7,26];
+        $dia[10] = [2,10,25];
+        return $dia;
     }
 
     public $rmr = [ 'RECIFE',

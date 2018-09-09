@@ -41,6 +41,11 @@ class User extends Authenticatable
                     ->y;
         return $age;
     }
+    public function getNomeAnsiAttribute(){
+        $value =  iconv( 'UTF-8', 'ASCII//TRANSLIT', $this->attributes['name'] );
+        $value = preg_replace( '/[`^~\'"]/', null, $value);
+        return $value;
+    }
     
     /* Relacionamentos N:1 */
     public function campus()
