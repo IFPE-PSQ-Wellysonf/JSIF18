@@ -19,11 +19,13 @@
                         <li><a data-toggle="tab" href="#campus">Por Campus</a></li>
                         <li><a data-toggle="tab" href="#hospedagem">Hospedagem</a></li>
                         <li><a data-toggle="tab" href="#alimentacao">Alimentação</a></li>
+                        <li><a data-toggle="tab" href="#logistica">Logística</a></li>
                     </ul>
                     <ul class="nav nav-tabs  hidden-md hidden-lg">
                         <li><a data-toggle="tab" href="#campus">Campus</a></li>
                         <li><a data-toggle="tab" href="#hospedagem">Hospedagem</a></li>
                         <li><a data-toggle="tab" href="#alimentacao">Alimentação</a></li>
+                        <li><a data-toggle="tab" href="#logistica">Logística</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="campus" class="tab-pane fade in active">
@@ -40,6 +42,11 @@
                             <h3>Alimentação</h3>
                             <p>Relação de servidores inscritos por data.</p>
                             <a href="{{route('relatorios.alimentacao')}}" target="_blank" class="btn btn-primary"><i class="fa fa-fw fa-file-pdf-o"></i> Gerar</a>
+                        </div>
+                        <div id="logistica" class="tab-pane fade">
+                            <h3>Logística</h3>
+                            <p>Relação de servidores inscritos, com idade, sexo e as modalidades cadastradas.</p>
+                            <a href="{{route('relatorios.logistica')}}" target="_blank" class="btn btn-primary"><i class="fa fa-fw fa-file-pdf-o"></i> Gerar</a>
                         </div>
                     </div>
                 </div>

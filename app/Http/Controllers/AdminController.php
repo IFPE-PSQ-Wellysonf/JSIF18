@@ -135,6 +135,19 @@ class AdminController extends Controller
         $mpdf->WriteHTML($contents);
         return $mpdf->Output();
     }
+    public function relatorios_logistica()
+    {
+        $campi = Campus::all();
+        $inscritos = Inscricaofinal::with('user')
+                                ->groupBy('user_id')
+                                ->get();
+        $inscricoes = Inscricaofinal::with('modalidade')->get();
+        $view = \View::make('admin.relat.logistica', compact('campi','inscritos','inscricoes'));
+        $contents = $view->render();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($contents);
+        return $mpdf->Output();
+    }
     public function relatorios_por_dia_sexo()
     {
         

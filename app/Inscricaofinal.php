@@ -19,6 +19,6 @@ class Inscricaofinal extends Model
     /* Relacionamentos N:1 */
     public function modalidade()
 	{
-		return $this->belongsTo('App\Modalidade', 'modalidade_id');
+		return $this->belongsTo('App\Modalidades', 'modalidade_id');
     }
 }

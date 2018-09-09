@@ -38,4 +38,6 @@ Route::get('/admin/relatorios/', 'AdminController@relatorios_home')->name('relat
 Route::get('/admin/relatorios/campus', 'AdminController@relatorios_campus')->name('relatorios.campus');
 Route::get('/admin/relatorios/hospedagem', 'AdminController@relatorios_hospedagem')->name('relatorios.hospedagem');
 Route::get('/admin/relatorios/alimentacao', 'AdminController@relatorios_alimentacao')->name('relatorios.alimentacao');
+Route::get('/admin/relatorios/logistica', 'AdminController@relatorios_logistica')->name('relatorios.logistica');
+
 
