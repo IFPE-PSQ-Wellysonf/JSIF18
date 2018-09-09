@@ -32,7 +32,7 @@
                         $cont = 1;
                     @endphp
                     <tbody>
-                        @foreach($inscritos->whereIn('modalidade_id', $modalidades)->sortBy('user.nomeAnsi') as $inscrito)
+                        @foreach($inscritos->whereIn('modalidade_id', $modalidades)->sortBy('user.nomeAnsi')->unique('user_id') as $inscrito)
                             <tr>
                                 <td class='centralizar'>{{ $cont++ }}</td>
                                 <td class='centralizar'>{{ $inscrito->user->siape }}</td>
