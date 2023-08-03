@@ -16,74 +16,80 @@ class ModalidadesSeeder extends Seeder
             'modalidade' => 'Atletismo',
         ]);
         Modalidades::create([
-                    'modalidade' => 'Futsal',
-                ]);
+            'modalidade' => 'Badminton',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Tênis de mesa',
-                ]);
+            'modalidade' => 'E-sports - FIFA 23',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Basquete',
-                ]);
+            'modalidade' => 'E-sports - Street Fighter VI',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Futevôlei',
-                ]);
+            'modalidade' => 'Natação',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Natação',
-                ]);
+            'modalidade' => 'Tênis de mesa',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Badminton',
-                ]);
+            'modalidade' => 'Xadrez',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Futebol',
-                ]);
+            'modalidade' => 'Basquete',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Volei de praia',
-                ]);
+            'modalidade' => 'Dominó',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Xadrez',
-                ]);
+            'modalidade' => 'Futebol de Campo',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Dominó',
-                ]);
+            'modalidade' => 'Futevôlei',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Volei de quadra',
-                ]);
+            'modalidade' => 'Futsal',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Society master (maiores de 40 anos)',
-                ]);
+            'modalidade' => 'Volei de quadra',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Queimado',
-                ]);
+            'modalidade' => 'Volei de praia',
+        ]);
+        
+        
+        
+        /* Modalidades::create([
+            'modalidade' => 'Society master (maiores de 40 anos)',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Cabo de guerra',
-                ]);
+            'modalidade' => 'Jogos populares - Queimado',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Corrida de saco',
-                ]);
+            'modalidade' => 'Jogos populares - Cabo de guerra',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - 7 cortes',
-                ]);
+            'modalidade' => 'Jogos populares - Corrida de saco',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Arremesso de 3',
-                ]);
+            'modalidade' => 'Jogos populares - 7 cortes',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Pula corda',
-                ]);
+            'modalidade' => 'Jogos populares - Arremesso de 3',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'Jogos populares - Bambolê',
-                ]);
+            'modalidade' => 'Jogos populares - Pula corda',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'E-sports - Just Dance',
-                ]);
+            'modalidade' => 'Jogos populares - Bambolê',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'E-sports - FIFA',
-                ]);
+            'modalidade' => 'E-sports - Just Dance',
+        ]);
+        
         Modalidades::create([
-                    'modalidade' => 'E-sports - KOF 97',
-                ]);
+            'modalidade' => 'E-sports - KOF 97',
+        ]);
         Modalidades::create([
-                    'modalidade' => 'E-sports - Street Fight',
-                ]);
-
+            'modalidade' => 'E-sports - Street Fight',
+        ]); */
     }
 }

@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('cod_uorg');
             $table->string('nome_uorg');
             $table->date('nascimento');
+            $table->string('sexo')->default('M');
             $table->string('situacao_vinculo');
             $table->boolean('endereco_confirmado')->default(FALSE);
             $table->string('endereco_logradouro');
