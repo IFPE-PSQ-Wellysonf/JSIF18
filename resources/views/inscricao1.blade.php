@@ -48,8 +48,8 @@
             <br>
             @if(!in_array(strtoupper(\Auth::user()->endereco_municipio), $rmr))
             <div class="row">
-                <h4>Você necessitará de hospedagem e alimentação para o período do evento?</h4>
-                <p class="help-block">Ressaltamos que haverá um termo de compromisso a fim de garantir o uso do hotel e da alimentação a ser ofertada para o evento</p>
+                <h4>Você necessitará de diárias para o período do evento?</h4>
+                {{--<p class="help-block">Ressaltamos que haverá um termo de compromisso a fim de garantir o uso do hotel e da alimentação a ser ofertada para o evento</p>--}}
                 <div class="radio">
                     <label>
                     <input type="radio" name="diarias" value="sim" @if(\Auth::user()->solicitou_diarias) checked @endif>

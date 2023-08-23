@@ -120,12 +120,12 @@ return [
             'icon'    => 'cog',
             'can' => 'admin',
             'submenu' => [
-                [
+                /*[
                     'text' => 'Inscrições',
                     'route'  => 'admin',
-                ],
+                ],*/
                 [
-                    'text' => 'Pré-inscrição',
+                    'text' => 'Inscrições',
                     'route'  => 'admin.pre',
                 ],
                 [
@@ -134,14 +134,15 @@ return [
                 ],
             ],
         ],
-        /* [
+        [
             'text' => 'Dados Pessoais',
             'route'  => 'perfil',
             'icon' => 'user-o',
-        ], */
+        ],
         [
             'text' => 'Inscrição',
-            'route'  => 'inscricao1',
+            'route'  => 'preinscricao',
+            /* 'route'  => 'inscricao1', */
             'icon' => 'pencil-square-o',
         ],
         /* [

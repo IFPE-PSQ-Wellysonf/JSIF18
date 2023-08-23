@@ -193,12 +193,13 @@ class AdminController extends Controller
     public function modalidadesData()
     {
         $dia = [];
-        $dia[3]= [1];
-        $dia[4] = [8,12];
-        $dia[5] = [5,6,8];
+        $dia[2]= [2,12,14];
+		$dia[3]= [2,4,11,13,9];
+        $dia[4] = [1,6,10,25];
+        /*$dia[5] = [5,6,8];
         $dia[8] = [9,11,13];
         $dia[9] = [2.4,7,26];
-        $dia[10] = [2,10,25];
+        $dia[10] = [2,10,25];*/
         return $dia;
     }
 

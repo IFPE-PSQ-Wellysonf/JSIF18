@@ -13,9 +13,11 @@ class AddConfirmToModalidade extends Migration
      */
     public function up()
     {
-        Schema::table('modalidades', function (Blueprint $table) {
+       /*  
+       Já inserido na migração de modalidades
+       Schema::table('modalidades', function (Blueprint $table) {
             $table->boolean('confirmado')->default(FALSE);
-        });
+        }); */
     }
 
     /**
@@ -25,8 +27,8 @@ class AddConfirmToModalidade extends Migration
      */
     public function down()
     {
-        Schema::table('modalidades', function($table) {
+        /* Schema::table('modalidades', function($table) {
             $table->dropColumn('confirmado');
-        });
+        }); */
     }
 }

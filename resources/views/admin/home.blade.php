@@ -3,7 +3,7 @@
 @section('title', 'Jogos Servidores IFPE')
 
 @section('content_header')
-    <h1>Jogos dos Servidores IFPE 2018</h1>
+    <h1>Jogos dos Servidores IFPE</h1>
     @if($pre)
     <h3>Pré-inscrição</h3>
     @else

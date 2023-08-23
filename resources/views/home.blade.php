@@ -123,13 +123,17 @@
             <div class="alert alert-warning" role="alert">Atenção aos informes abaixo!</div>
             <h3>Informes:</h3>
             <ul>
-                <li>No(a) caso de não comparecimento do(a) atleta que solicitar hospedagem, o (a) mesmo(a) poderá ter que vir a ressarcir ao erário público através de GRU;</li>
-                {{--  <li>Caso o(a) atleta não compareça a(s) modalidade(s) para a(s) qual(is) se inscreveu, poderá ser penalizado com a não participação na próxima edição do evento;</li>  --}}
+                <li>O(a)  servidor(a) que não residir na região metropolitana do Recife deverá marcar a opção que necessita de diária para os dias que for participar do evento. Caso não compareça, deverá restituir ao erário através de GRU</li>
+				<li>Informamos que o society  não terá limitação de idade, porém  o(a) servidor(a) deverá optar entre a inscrição no society ou no futsal (estará tal situação prevista no regulamento dos jogos)</li>
+				<li>Quanto ao atletismo, os(as) atletas deverão optar, no dia do evento, por 3 provas e 2 revezamentos (estará tal situação prevista no regulamento dos jogos)</li>
+				<li>Ressaltamos sempre a importância dos(as) servidores(as) estarem em dia com seus exames de saúde independente da participação nessa competição</li>
+            </ul>
+            {{-- <ul>
+				<li>No(a) caso de não comparecimento do(a) atleta que solicitar hospedagem, o (a) mesmo(a) poderá ter que vir a ressarcir ao erário público através de GRU;</li>
+                <li>Caso o(a) atleta não compareça a(s) modalidade(s) para a(s) qual(is) se inscreveu, poderá ser penalizado com a não participação na próxima edição do evento;</li>  
                 <li>Caso o(a) atleta não apresente ao(a) representante do Núcleo de Esporte e Lazer de seu campi os exames médicos com parecer de aptidão para realização de atividade física, deverá assinar o "Termo de Responsabilidade e Compromisso" para poder participar do evento;</li>
                 <li>O(a) atleta deve observar o cronograma do evento antes de realizar a inscrição, pois haverá momentos em que modalidades ocorrerão concomitantemente;</li>
                 <li>O(a) atleta deve portar durante o evento um documento oficial com foto.</li>
-            </ul>
-            {{-- <ul>
                 <li>Modalidades: o(a) servidor(a) deve selecionar àquela(s) que deseja participar independente de quantidade, esclarecemos que não significa que todas serão ofertadas.</li>
                 <li>Os atletas que não são residentes na Região Metropolitana do Recife, deverão informar a necessidade de hospedagem e alimentação, para ajuda no período dos jogos.</li>
                 <li>Esclarecemos que o Núcleo de Esporte e Lazer recomenda a realização de exames médicos por parte de todo e qualquer servidor que desejar participar do V Jogos dos Servidores do IFPE, porém os mesmos não serão considerados obrigatórios para participação no evento. (Para aqueles que não realizarem os exames médicos haverá a opção de assinar um termo de responsabilidade).</li>
@@ -140,50 +144,29 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h3>Datas de realização dos jogos por modalidade:</h3>
+            <h3>Datas de realização dos jogos por modalidade em <b>Recife</b>:</h3>
+			
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>03/10</th>
-                        <th>04/10</th>
-                        <th>05/10</th>
-                        <th>08/10</th>
-                        <th>09/10</th>
-                        <th>10/10</th>
+						<th>&nbsp; </th>
+                        <th>Dia 1 (02/12)</th>
+                        <th>Dia 2 (03/12)</th>
+                        <th>Dia 3 (04/12)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Atletismo</td>
-                        <td>Abertura</td>
-                        <td>Natação</td>
-                        <td>Volei de praia</td>
-                        <td>Futsal (Masc)</td>
-                        <td>Futsal (Masc e Fem)</td>
+                        <th>Manhã</th>
+                        <td>Futsal<br>Populares</td>
+                        <td>Society<br>Dominó<br>Volei de Praia</td>
+                        <td>Natação<br>Jogos Eletrônicos<br>Xadrez</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td>Futebol</td>
-                        <td>Futebol</td>
-                        <td>Futebol Society</td>
-                        <td>Basquete</td>
-                        <td>Xadrez</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Vôlei de quadra</td>
-                        <td>Futvôlei</td>
-                        <td>Dominó</td>
-                        <td>Badminton</td>
-                        <td>Jogos Eletrônicos</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>Jogos Populares</td>
-                        <td></td>
+					<tr>
+                        <th>Tarde</th>
+                        <td>Abertura<br>Futsal (Classificatória)<br>Futsal Feminino<br>Volei de Quadra</td>
+                        <td>Futsal (Classificatória e Final)<br>Basquete<br>Volei de Praia</td>
+                        <td>Atletismo<br>Encerramento</td>
                     </tr>
                 </tbody>
             </table>

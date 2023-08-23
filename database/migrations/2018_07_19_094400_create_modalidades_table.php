@@ -16,6 +16,7 @@ class CreateModalidadesTable extends Migration
         Schema::create('modalidades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('modalidade');
+            $table->boolean('confirmado')->default(FALSE);
             $table->timestamps();
         });
     }

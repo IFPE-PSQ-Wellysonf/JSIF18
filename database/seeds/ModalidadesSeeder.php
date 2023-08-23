@@ -12,6 +12,53 @@ class ModalidadesSeeder extends Seeder
      */
     public function run()
     {
+
+        Modalidades::create([
+            'modalidade' => 'Atletismo',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Badminton',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'E-sports - FIFA 23',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'E-sports - Street Fighter VI',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Natação',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Tênis de mesa',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Xadrez',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Basquete',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Dominó',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Futebol de Campo',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Futevôlei',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Futsal',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Volei de quadra',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Volei de praia',
+        ]);
+
+        /* 
+        Modalidades 2019
+        
         Modalidades::create([
             'modalidade' => 'Atletismo',
         ]);
@@ -83,7 +130,7 @@ class ModalidadesSeeder extends Seeder
                 ]);
         Modalidades::create([
                     'modalidade' => 'E-sports - Street Fight',
-                ]);
+                ]); */
 
     }
 }

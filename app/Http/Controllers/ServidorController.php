@@ -117,11 +117,11 @@ class ServidorController extends Controller
         \Auth::user()->update($request->all());
         \Auth::user()->endereco_confirmado = TRUE;
         \Auth::user()->save();
-        if(\Auth::user()->email != $email_backup){
+        /*if(\Auth::user()->email != $email_backup){
             if(!is_null(\Auth::user()->email)){
                 \Mail::to(\Auth::user())->queue(new \App\Mail\EmailUpdated(\Auth::user()));
             }
-        }
+        }*/
         return redirect()->route('home')->with('sucesso','Seus enderço foi atualizado e confirmado.');
     }
     public function inscricao_final()
