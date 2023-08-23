@@ -18,6 +18,7 @@ class AddSexoToUsers extends Migration
         Schema::table('users', function($table) {
             $table->string('sexo')->default('M');
         }); */
+
     }
 
     /**
@@ -28,7 +29,9 @@ class AddSexoToUsers extends Migration
     public function down()
     {
         /* Schema::table('users', function($table) {
+        /* Schema::table('users', function($table) {
             $table->dropColumn('sexo');
         }); */
+
     }
 }

@@ -28,6 +28,7 @@ class AddConfirmToModalidade extends Migration
     public function down()
     {
         /* Schema::table('modalidades', function($table) {
+        /* Schema::table('modalidades', function($table) {
             $table->dropColumn('confirmado');
         }); */
     }
