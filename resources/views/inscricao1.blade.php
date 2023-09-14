@@ -46,7 +46,20 @@
                 </div>
             </div>
             <br>
-            @if(!in_array(strtoupper(\Auth::user()->endereco_municipio), $rmr))
+            @php
+                if(env('FILTRO_DIARIA_RESIDENCIA', false)){
+                    $validacao_residencia = !in_array(strtoupper(\Auth::user()->endereco_municipio), $rmr);
+                }else {
+                    $validacao_residencia = true;
+                }
+                if(env('FILTRO_DIARIA_LOTACAO', false)){
+                    $validacao_campi = !in_array(strtoupper(\Auth::user()->campus_id), $rmr_id);
+                }else {
+                    $validacao_campi = true;
+                }
+            @endphp
+            {{-- @if(!in_array(strtoupper(\Auth::user()->endereco_municipio), $rmr)) --}}
+            @if($validacao_residencia && $validacao_campi)
             <div class="row">
                 <h4>Você necessitará de diárias para o período do evento?</h4>
                 {{--<p class="help-block">Ressaltamos que haverá um termo de compromisso a fim de garantir o uso do hotel e da alimentação a ser ofertada para o evento</p>--}}

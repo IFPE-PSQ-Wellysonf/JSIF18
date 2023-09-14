@@ -55,9 +55,20 @@ class ServidorController extends Controller
             'ILHA DE ITAMARACÁ',
             'ARAÇOIABA',
         ];
+        $rmr_id = [ 
+            1,
+            5,
+            8,
+            9,
+            10,
+            11,
+            13,
+            15,
+            17,
+        ];
         $modalidades = Modalidades::orderBy('modalidade')->get();
         $inscricoes = Inscricao::where('user_id', \Auth::user()->id)->get();
-        return view('inscricao1', compact('modalidades','inscricoes','rmr'));
+        return view('inscricao1', compact('modalidades','inscricoes','rmr', 'rmr_id'));
     }
     public function inscricao1_store(Request $request){
         /* Valida se está no periodo de inscrições */
