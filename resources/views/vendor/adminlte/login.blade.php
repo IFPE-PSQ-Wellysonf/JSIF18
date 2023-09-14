@@ -67,7 +67,7 @@
                 @endif
             </div> --}}
             <div style="text-align: center;">
-                <samp>Em caso de problemas no acesso, favor entrar em contato: <a href="mailto:ddqv@reitoria.ifpe.edu.br">ddqv@reitoria.ifpe.edu.br</a></samp>
+                <samp>Em caso de problemas no acesso, favor entrar em contato: <a href="mailto:{{ env('EMAIL_SUPORTE') }}">{{ env('EMAIL_SUPORTE') }}</a></samp>
             </div>
         </div>
         <!-- /.login-box-body -->

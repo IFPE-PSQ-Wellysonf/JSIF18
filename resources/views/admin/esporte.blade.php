@@ -4,10 +4,10 @@
 <link rel="stylesheet" href="{{ asset('vendor/Datatables-1.10.16/jquery.dataTables.min.css') }}">
 @stop
 
-@section('title', 'Jogos Servidores IFPE')
+@section('title', 'Jogos dos Servidores IFPE')
 
 @section('content_header')
-    <h1>Jogos dos Servidores IFPE 2018</h1>
+    <h1>{{ env('APP_NAME') }}</h1>
     <h3>{{$modalidade->modalidade}}</h3>
     <h4>Total de inscritos {{count($inscricoes)}}</h4>
 @stop

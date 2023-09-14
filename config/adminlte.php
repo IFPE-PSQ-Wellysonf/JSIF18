@@ -125,13 +125,13 @@ return [
                     'route'  => 'admin',
                 ],*/
                 [
-                    'text' => 'Inscrições',
+                    'text' => 'Pré - Inscrições',
                     'route'  => 'admin.pre',
                 ],
-                [
+                /*[
                     'text' => 'Relatórios',
                     'route'  => 'relatorios',
-                ],
+                ],*/
             ],
         ],
         [

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Jogos Servidores IFPE')
+@section('title', 'Jogos dos Servidores IFPE')
 
 @section('content_header')
-    <h1>Jogos dos Servidores IFPE 2018</h1>
+    <h1>{{ env('APP_NAME') }}</h1>
     <h4>Painel de relatórios</h4>
 @stop
 

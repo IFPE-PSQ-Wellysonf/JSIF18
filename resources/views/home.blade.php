@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Jogos Servidores IFPE')
+@section('title', 'Jogos dos Servidores IFPE')
 
 @section('content_header')
-    {{-- <h1>Jogos dos Servidores IFPE 2018</h1> --}}
+    {{-- <h1>{{ env('APP_NAME') }}</h1> --}}
 @stop
 
 @section('content')
@@ -124,7 +124,6 @@
             <h3>Informes:</h3>
             <ul>
                 <li>O(a)  servidor(a) que não residir na região metropolitana do Recife deverá marcar a opção que necessita de diária para os dias que for participar do evento. Caso não compareça, deverá restituir ao erário através de GRU</li>
-				<li>Informamos que o society  não terá limitação de idade, porém  o(a) servidor(a) deverá optar entre a inscrição no society ou no futsal (estará tal situação prevista no regulamento dos jogos)</li>
 				<li>Quanto ao atletismo, os(as) atletas deverão optar, no dia do evento, por 3 provas e 2 revezamentos (estará tal situação prevista no regulamento dos jogos)</li>
 				<li>Ressaltamos sempre a importância dos(as) servidores(as) estarem em dia com seus exames de saúde independente da participação nessa competição</li>
             </ul>
@@ -139,10 +138,11 @@
                 <li>Esclarecemos que o Núcleo de Esporte e Lazer recomenda a realização de exames médicos por parte de todo e qualquer servidor que desejar participar do V Jogos dos Servidores do IFPE, porém os mesmos não serão considerados obrigatórios para participação no evento. (Para aqueles que não realizarem os exames médicos haverá a opção de assinar um termo de responsabilidade).</li>
                 <li>O V Jogos dos servidores do IFPE ocorrerão no município de Recife e região metropolitana no período de 03 a 05 de outubro e de 08 a 10 de outubro de 2018.</li>
                 <li>Para participação no evento é obrigatória a pré-inscrição no período de 24 de julho a 24 de agosto de 2018. Posteriormente, os servidores receberão um email em seu email institucional (esse dado deverá ser informado obrigatoriamente nesta pré inscrição clicando <a href="{{ route('perfil') }}" target="_self">AQUI</a>) a fim de confirmar a inscrição no evento e nas modalidades previamente selecionadas.</li>
+				<li>Informamos que o society  não terá limitação de idade, porém  o(a) servidor(a) deverá optar entre a inscrição no society ou no futsal (estará tal situação prevista no regulamento dos jogos)</li>
             </ul> --}}
         </div>
     </div>
-    <div class="row">
+    {{--<div class="row">
         <div class="col-md-12">
             <h3>Datas de realização dos jogos por modalidade em <b>Recife</b>:</h3>
 			
@@ -171,11 +171,11 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div>--}}
     <br>
     <div class="row">
         <div class="col-md-12" style="text-align: center;">
-            <samp>Em caso de dúvidas ou sugestões, favor entrar em contato: <a href="mailto:ddqv@reitoria.ifpe.edu.br">ddqv@reitoria.ifpe.edu.br</a></samp>
+            <samp>Em caso de dúvidas ou sugestões, favor entrar em contato: <a href="mailto:{{ env('EMAIL_SUPORTE') }}">{{ env('EMAIL_SUPORTE') }}</a></samp>
         </div>
     </div>
 @stop

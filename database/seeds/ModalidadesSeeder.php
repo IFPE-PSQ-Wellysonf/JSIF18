@@ -19,28 +19,25 @@ class ModalidadesSeeder extends Seeder
         Modalidades::create([
             'modalidade' => 'Badminton',
         ]);
+		Modalidades::create([
+            'modalidade' => 'Basquete',
+        ]);
+		Modalidades::create([
+            'modalidade' => 'Dominó',
+        ]);
         Modalidades::create([
             'modalidade' => 'E-sports - FIFA 23',
+        ]);
+		Modalidades::create([
+            'modalidade' => 'E-sports - Just Dance',
+        ]);
+		Modalidades::create([
+            'modalidade' => 'E-sports - KOF',
         ]);
         Modalidades::create([
             'modalidade' => 'E-sports - Street Fighter VI',
         ]);
-        Modalidades::create([
-            'modalidade' => 'Natação',
-        ]);
-        Modalidades::create([
-            'modalidade' => 'Tênis de mesa',
-        ]);
-        Modalidades::create([
-            'modalidade' => 'Xadrez',
-        ]);
-        Modalidades::create([
-            'modalidade' => 'Basquete',
-        ]);
-        Modalidades::create([
-            'modalidade' => 'Dominó',
-        ]);
-        Modalidades::create([
+		 Modalidades::create([
             'modalidade' => 'Futebol de Campo',
         ]);
         Modalidades::create([
@@ -49,11 +46,26 @@ class ModalidadesSeeder extends Seeder
         Modalidades::create([
             'modalidade' => 'Futsal',
         ]);
+		Modalidades::create([
+            'modalidade' => 'Handebol',
+        ]);
+		Modalidades::create([
+            'modalidade' => 'Jogos populares',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Natação',
+        ]);
+        Modalidades::create([
+            'modalidade' => 'Tênis de mesa',
+        ]);
         Modalidades::create([
             'modalidade' => 'Volei de quadra',
         ]);
         Modalidades::create([
-            'modalidade' => 'Volei de praia',
+            'modalidade' => 'Volei de areia',
+        ]);
+		Modalidades::create([
+            'modalidade' => 'Xadrez',
         ]);
 
         /* 
