@@ -123,11 +123,12 @@
             <div class="alert alert-warning" role="alert">Atenção aos informes abaixo!</div>
             <h3>Informes:</h3>
             <ul>
-                <li>O(a)  servidor(a) que não residir na região metropolitana do Recife deverá marcar a opção que necessita de diária para os dias que for participar do evento. Caso não compareça, deverá restituir ao erário através de GRU</li>
+                <li>O(a) servidor(a) que não residir ou não estiver sediado na região metropolitana do Recife poderá marcar a opção que necessita de diária para os dias que for participar do evento. Caso não compareça, deverá restituir ao erário através de GRU.</li>
 				<li>Quanto ao atletismo, os(as) atletas deverão optar, no dia do evento, por 3 provas e 2 revezamentos (estará tal situação prevista no regulamento dos jogos)</li>
 				<li>Ressaltamos sempre a importância dos(as) servidores(as) estarem em dia com seus exames de saúde independente da participação nessa competição</li>
             </ul>
             {{-- <ul>
+				<li>O(a)  servidor(a) que não residir na região metropolitana do Recife deverá marcar a opção que necessita de diária para os dias que for participar do evento. Caso não compareça, deverá restituir ao erário através de GRU</li>
 				<li>No(a) caso de não comparecimento do(a) atleta que solicitar hospedagem, o (a) mesmo(a) poderá ter que vir a ressarcir ao erário público através de GRU;</li>
                 <li>Caso o(a) atleta não compareça a(s) modalidade(s) para a(s) qual(is) se inscreveu, poderá ser penalizado com a não participação na próxima edição do evento;</li>  
                 <li>Caso o(a) atleta não apresente ao(a) representante do Núcleo de Esporte e Lazer de seu campi os exames médicos com parecer de aptidão para realização de atividade física, deverá assinar o "Termo de Responsabilidade e Compromisso" para poder participar do evento;</li>
