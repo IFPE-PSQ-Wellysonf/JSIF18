@@ -16,7 +16,11 @@
             <p>{{ config('app.name') }}</p>
         </header>
         <section>
-            <h1>Relação de inscritos</h1>
+            @if (env('RELATORIOS_INSC_FINAL', true)))
+                <h1>Relação de inscritos</h1>
+            @else
+                <h1>Relação de pré-inscritos</h1>
+            @endif
             <h2><i>Campus</i>  {{ $campus->campus }}</h2>
             @if(count($inscritos->where('user.campus_id', $campus->id)) > 0 )
                 <h3>Quantidade total de inscritos: <b>{{ count($inscritos->where('user.campus_id', $campus->id)) }}</b></h3>

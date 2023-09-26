@@ -16,7 +16,11 @@
             <p>{{ config('app.name') }}</p>
         </header>
         <section>
-            <h1>Relação de inscritos</h1>
+            @if (env('RELATORIOS_INSC_FINAL', true)))
+                <h1>Relação de inscritos</h1>
+            @else
+                <h1>Relação de pré-inscritos</h1>
+            @endif
             <h2><i>Dia</i>  {{ $dia }}</h2>
             @if(count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo','F')) > 0 )
                 <h3>Quantidade total de inscritos do sexo Feminino: <b>{{ count($inscritos->whereIn('modalidade_id', $modalidades)->where('user.sexo','F')) }}</b></h3>
