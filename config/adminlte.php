@@ -141,8 +141,8 @@ return [
         ],
         [
             'text' => 'Inscrição',
-            'route'  => 'preinscricao',
-            /* 'route'  => 'inscricao1', */
+            /* 'route'  => 'preinscricao', */
+            'route'  => 'inscricao1',
             'icon' => 'pencil-square-o',
         ],
         /* [
