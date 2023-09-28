@@ -167,12 +167,15 @@ class ServidorController extends Controller
         DB::beginTransaction();
         try{
             Inscricaofinal::where('user_id', \Auth::user()->id)->delete();
-            if(count($request->modalidade)>0){
+            $inscricoes = Inscricao::where('user_id', \Auth::user()->id)->get();
+            if($request->modalidade && count($request->modalidade)>0){
                 foreach($request->modalidade as $modalidade){
-                    Inscricaofinal::create([
-                        'user_id' => \Auth::user()->id,
-                        'modalidade_id' => $modalidade
-                    ]);
+                    if(count($inscricoes->where('modalidade_id', $modalidade))>0){
+                        Inscricaofinal::create([
+                            'user_id' => \Auth::user()->id,
+                            'modalidade_id' => $modalidade
+                        ]);
+                    }
                 }
             }
             /* if(isset($request->diarias) && $request->diarias == 'sim'){
