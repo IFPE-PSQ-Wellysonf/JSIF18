@@ -86,52 +86,54 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>03/10</th>
-                            <th>04/10</th>
-                            <th>05/10</th>
-                            <th>08/10</th>
-                            <th>09/10</th>
-                            <th>10/10</th>
+                            <th>07/11</th>
+                            <th>08/11</th>
+                            <th>09/11</th>
+                            <th>10/11</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Atletismo</td>
+                            <td>Atletismo (masculino e feminino)</td>
                             <td>Abertura</td>
-                            <td>Natação</td>
-                            <td>Volei de praia</td>
-                            <td>Futsal (Masc)</td>
-                            <td>Futsal (Masc e Fem)</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Futebol</td>
-                            <td>Futebol</td>
-                            <td>Futebol Society</td>
+                            <td>Futsal (masculino e feminino)</td>
                             <td>Basquete</td>
-                            <td>Xadrez</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td>Vôlei de quadra</td>
-                            <td>Futvôlei</td>
-                            <td>Dominó</td>
-                            <td>Badminton</td>
-                            <td>Jogos Eletrônicos</td>
+                            <td>Natação (masculino e feminino)</td>
+                            <td>Futsal (masculino)</td>
+                            <td>Voleibol de praia</td>
+                            <td>Futebol de campo</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Futevôlei (masculino)</td>
+                            <td>Voleibol de quadra (masculino e feminino)</td>
                             <td>Jogos Populares</td>
+                            <td>Voleibol de praia</td>
+                        </tr>
+                        <tr>
+                            <td>Jogos Eletrônicos</td>
+                            <td>Dominó</td>
+                            <td>Xadrez</td>
+                            <td>Badminton</td>
+                        </tr>
+                        <tr>
                             <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Tênis de mesa</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Handebol (feminino)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-6 col-xs-12">
                 <table class="table table-striped">
                     <thead>
@@ -190,7 +192,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 @stop
