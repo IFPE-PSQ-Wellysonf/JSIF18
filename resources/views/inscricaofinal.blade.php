@@ -35,7 +35,11 @@
                     @foreach($modalidades as $modalidade)
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="modalidade[]" value="{{ $modalidade->id }}" @if(count($inscricoesfinais->where('modalidade_id', $modalidade->id))>0) checked @endif>
+                            <input type="checkbox"
+                            @if(count($inscricoes->where('modalidade_id', $modalidade->id))<1) 
+                                disabled
+                            @endif
+                            name="modalidade[]" value="{{ $modalidade->id }}" @if(count($inscricoesfinais->where('modalidade_id', $modalidade->id))>0) checked @endif>
                             {{ $modalidade->modalidade }}
                             @if(count($inscricoes->where('modalidade_id', $modalidade->id))>0) 
                                 <i class="fa fa-fw fa-check-square"></i>
