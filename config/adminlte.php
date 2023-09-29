@@ -120,18 +120,18 @@ return [
             'icon'    => 'cog',
             'can' => 'admin',
             'submenu' => [
-                /*[
+                [
                     'text' => 'Inscrições',
                     'route'  => 'admin',
-                ],*/
+                ],
                 [
                     'text' => 'Pré - Inscrições',
                     'route'  => 'admin.pre',
                 ],
-                /*[
+                [
                     'text' => 'Relatórios',
                     'route'  => 'relatorios',
-                ],*/
+                ],
             ],
         ],
         [

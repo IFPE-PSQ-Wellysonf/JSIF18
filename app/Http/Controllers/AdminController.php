@@ -18,77 +18,46 @@ class AdminController extends Controller
     }
 
     public function home(){
-        $pre = !env('RELATORIOS_INSC_FINAL', true);
+        $pre = TRUE;
+        $inscricoes = DB::table('inscricoes')
+                            ->select('modalidade_id', DB::raw('count(user_id) as qtd'))
+                            ->groupBy('modalidade_id')
+                            ->get();
         $modalidades = Modalidades::orderBy('modalidade')->get();
         $campi = Campus::all();
         $rmr = $this->rmr;
-		if(env('RELATORIOS_INSC_FINAL', true)){
-			$inscricoes = DB::table('inscricoesfinais')
-                            ->select('modalidade_id', DB::raw('count(user_id) as qtd'))
-                            ->groupBy('modalidade_id')
-                            ->get();
-			$insc_group = Inscricaofinal::with('user')
-						->groupBy('user_id')
-						->get();
-		}else{
-			$inscricoes = DB::table('inscricoes')
-                            ->select('modalidade_id', DB::raw('count(user_id) as qtd'))
-                            ->groupBy('modalidade_id')
-                            ->get();
-			$insc_group = Inscricao::with('user')
-						->groupBy('user_id')
-						->get();
-		}
+        $insc_group = Inscricao::with('user')
+                    ->groupBy('user_id')
+                    ->get();
         return view('admin.home', compact('inscricoes','modalidades','insc_group','rmr','campi','pre'));
     }
     public function detalhe_esporte($id)
     {
-        $pre = !env('RELATORIOS_INSC_FINAL', true);
+        $pre = TRUE;
         $rmr = $this->rmr;
         $modalidade = Modalidades::find($id);
-		if(env('RELATORIOS_INSC_FINAL', true)){
-			$inscricoes = Inscricaofinal::where('modalidade_id',$id)
+        $inscricoes = Inscricao::where('modalidade_id',$id)
                                 ->with('user.campus')
                                 ->get();
-		}else{
-			$inscricoes = Inscricao::where('modalidade_id',$id)
-                                ->with('user.campus')
-                                ->get();
-		}
         return view('admin.esporte', compact('inscricoes','modalidade','rmr','pre'));
     }
     public function detalhe_campus($id)
     {
-        $pre = !env('RELATORIOS_INSC_FINAL', true);
+        $pre = TRUE;
         $rmr = $this->rmr;
         $campus = Campus::findOrFail($id);
-		if(env('RELATORIOS_INSC_FINAL', true)){
-			$inscricoes = Inscricaofinal::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
+        $inscricoes = Inscricao::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
                                 ->with('user.campus')
                                 ->groupBy('user_id')
                                 ->get();
-		}else{
-			$inscricoes = Inscricao::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
-                                ->with('user.campus')
-                                ->groupBy('user_id')
-                                ->get();
-		}
-        
         return view('admin.campus', compact('inscricoes','campus','rmr','pre'));
     }
     public function home_inscricao(){
-        $pre = !env('RELATORIOS_INSC_FINAL', true);
-		if(env('RELATORIOS_INSC_FINAL', true)){
-			$inscricoes = DB::table('inscricoesfinais')
+        $pre = FALSE;
+        $inscricoes = DB::table('inscricoesfinais')
                             ->select('modalidade_id', DB::raw('count(user_id) as qtd'))
                             ->groupBy('modalidade_id')
                             ->get();
-		}else{
-			$inscricoes = DB::table('inscricoes')
-                            ->select('modalidade_id', DB::raw('count(user_id) as qtd'))
-                            ->groupBy('modalidade_id')
-                            ->get();
-		}
         $modalidades = Modalidades::where('confirmado',TRUE)->orderBy('modalidade')->get();
         $campi = Campus::all();
         $rmr = $this->rmr;
@@ -99,38 +68,23 @@ class AdminController extends Controller
     }
     public function detalhe_esporte_inscricao($id)
     {
-        $pre = !env('RELATORIOS_INSC_FINAL', true);
+        $pre = FALSE;
         $rmr = $this->rmr;
         $modalidade = Modalidades::find($id);
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscricoes = Inscricaofinal::where('modalidade_id',$id)
-                ->with('user.campus')
-                ->get();
-        }else{
-            $inscricoes = Inscricao::where('modalidade_id',$id)
-                ->with('user.campus')
-                ->get();
-        }
-       
+        $inscricoes = Inscricaofinal::where('modalidade_id',$id)
+                                ->with('user.campus')
+                                ->get();
         return view('admin.esporte', compact('inscricoes','modalidade','rmr','pre'));
     }
     public function detalhe_campus_inscricao($id)
     {
-        $pre = !env('RELATORIOS_INSC_FINAL', true);
+        $pre = FALSE;
         $rmr = $this->rmr;
         $campus = Campus::findOrFail($id);
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscricoes = Inscricaofinal::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
+        $inscricoes = Inscricaofinal::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
                                 ->with('user.campus')
                                 ->groupBy('user_id')
                                 ->get();
-        }else{
-            $inscricoes = Inscricao::whereHas('user',function ($query) use ($campus){ $query->where('campus_id', $campus->id); })
-                                ->with('user.campus')
-                                ->groupBy('user_id')
-                                ->get();
-        }
-        
         return view('admin.campus', compact('inscricoes','campus','rmr','pre'));
     }
 
@@ -172,22 +126,9 @@ class AdminController extends Controller
     public function relatorios_campus()
     {
         $campi = Campus::all();
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscritos = Inscricaofinal::with('user')
-								/*->whereHas('user', function($query) {
-									$query->where('solicitou_diarias', '=', true);
-								})*/
+        $inscritos = Inscricaofinal::with('user')
                                 ->groupBy('user_id')
                                 ->get();
-        }else{
-            $inscritos = Inscricao::with('user')
-								/*->whereHas('user', function($query) {
-									$query->where('solicitou_diarias', '=', true);
-								})*/
-                                ->groupBy('user_id')
-                                ->get();
-        }
-        
         $view = \View::make('admin.relat.campus', compact('campi','inscritos'));
         $contents = $view->render();
         $mpdf = new \Mpdf\Mpdf();
@@ -197,18 +138,10 @@ class AdminController extends Controller
     public function relatorios_logistica()
     {
         $campi = Campus::all();
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscritos = Inscricaofinal::with('user')
+        $inscritos = Inscricaofinal::with('user')
                                 ->groupBy('user_id')
                                 ->get();
-            $inscricoes = Inscricaofinal::with('modalidade')->get();
-        }else{
-            $inscritos = Inscricao::with('user')
-                                ->groupBy('user_id')
-                                ->get();
-            $inscricoes = Inscricao::with('modalidade')->get();
-
-        }
+        $inscricoes = Inscricaofinal::with('modalidade')->get();
         $view = \View::make('admin.relat.logistica', compact('campi','inscritos','inscricoes'));
         $contents = $view->render();
         $mpdf = new \Mpdf\Mpdf();
@@ -219,14 +152,8 @@ class AdminController extends Controller
     {
         
         $campi = Campus::all();
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscritos = Inscricaofinal::with('user')
+        $inscritos = Inscricaofinal::with('user')
                                 ->get();
-        }else{
-            $inscritos = Inscricao::with('user')
-                                ->get();
-        }
-        
         $datas = $this->modalidadesData();
         /* return view('admin.relat.hospedagem', compact('campi','inscritos','datas')); */
         $view = \View::make('admin.relat.hospedagem', compact('campi','inscritos','datas'));
@@ -239,14 +166,8 @@ class AdminController extends Controller
     {
         
         $campi = Campus::all();
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscritos = Inscricaofinal::with('user')
+        $inscritos = Inscricaofinal::with('user')
                                 ->get();
-        }else{
-            $inscritos = Inscricao::with('user')
-                                ->get();
-        }
-        
         $datas = $this->modalidadesData();
         /* return view('admin.relat.hospedagem', compact('campi','inscritos','datas')); */
         $view = \View::make('admin.relat.alimentacao', compact('campi','inscritos','datas'));
@@ -259,13 +180,8 @@ class AdminController extends Controller
     {
         
         $campi = Campus::all();
-        if(env('RELATORIOS_INSC_FINAL', true)){
-            $inscritos = Inscricaofinal::with('user')
+        $inscritos = Inscricaofinal::with('user')
                                 ->get();
-        }else{
-            $inscritos = Inscricao::with('user')
-                                ->get();
-        }
         $datas = $this->modalidadesData();
         /* return view('admin.relat.hospedagem', compact('campi','inscritos','datas')); */
         $view = \View::make('admin.relat.hospedagem', compact('campi','inscritos','datas'));
@@ -290,26 +206,7 @@ class AdminController extends Controller
         $dia[10] = [2,10,25];*/
         return $dia;
     }
-/*
-	{"id":"1","modalidade":"Atletismo"},
-	{"id":"2","modalidade":"Badminton"},
-	{"id":"3","modalidade":"Basquete"},
-	{"id":"4","modalidade":"Dominó"},
-	{"id":"5","modalidade":"E-sports - FIFA 23"},
-	{"id":"6","modalidade":"E-sports - Just Dance"},
-	{"id":"7","modalidade":"E-sports - KOF"},
-	{"id":"8","modalidade":"E-sports - Street Fighter VI"},
-	{"id":"9","modalidade":"Futebol de Campo"},
-	{"id":"10","modalidade":"Futevôlei"},
-	{"id":"11","modalidade":"Futsal"},
-	{"id":"12","modalidade":"Handebol"},
-	{"id":"13","modalidade":"Jogos populares"},
-	{"id":"14","modalidade":"Natação"},
-	{"id":"15","modalidade":"Tênis de mesa"},
-	{"id":"16","modalidade":"Volei de quadra"},
-	{"id":"17","modalidade":"Volei de areia"},
-	{"id":"18","modalidade":"Xadrez"}
-*/
+
     public $rmr = [ 'RECIFE',
             'JABOATÃO DOS GUARARAPES',
             'OLINDA',

@@ -15,7 +15,7 @@
 			<p>Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco</p>
 			<p>{{ config('app.name') }}</p>
 			<h2><i>Campus</i>  {{ $campus->campus }}</h2>
-			@if (env('RELATORIOS_INSC_FINAL', true)))
+			@if (env('RELATORIOS_INSC_FINAL', true))
                 <h1>Relação de inscritos</h1>
             @else
                 <h1>Relação de pré-inscritos</h1>
