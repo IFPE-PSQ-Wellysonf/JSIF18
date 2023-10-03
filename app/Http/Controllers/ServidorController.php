@@ -15,29 +15,33 @@ class ServidorController extends Controller
     {
         $this->middleware('auth');
     }
-    public function endereco_index(){
+    public function endereco_index()
+    {
         return view('endereco');
     }
-    public function atualizar_endereco(Request $request){
+    public function atualizar_endereco(Request $request)
+    {
         /* Valida se está no periodo de inscrições */
         $data_inicial_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_INICIO_PREINSC', '2018-08-20 00:00:00'));
         $data_final_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_TERMINO_PREINSC', '2018-08-24 23:59:59'));
         $agora = Carbon::now();
-        if ($agora->lt($data_inicial_insc)){
+        if ($agora->lt($data_inicial_insc)) {
             $msg_erro = 'As inscrições ainda não estão abertas.';
-            return redirect()->route('form_endereco')->withErrors([$msg_erro]);
+            return redirect()->route('perfil')->withErrors([$msg_erro]);
         }
-        if ($agora->gt($data_final_insc)){
+        if ($agora->gt($data_final_insc)) {
             $msg_erro = 'As inscrições estão encerradas.';
-            return redirect()->route('form_endereco')->withErrors([$msg_erro]);
+            return redirect()->route('perfil')->withErrors([$msg_erro]);
         }
         \Auth::user()->update($request->all());
         \Auth::user()->endereco_confirmado = TRUE;
         \Auth::user()->save();
-        return redirect()->route('form_endereco')->with('sucesso','Seus enderço foi atualizado e confirmado.');
+        return redirect()->route('perfil')->with('sucesso', 'Seus enderço foi atualizado e confirmado.');
     }
-    public function inscricao1_index(){
-        $rmr = [ 'RECIFE',
+    public function inscricao1_index()
+    {
+        $rmr = [
+            'RECIFE',
             'JABOATÃO DOS GUARARAPES',
             'OLINDA',
             'PAULISTA',
@@ -55,7 +59,7 @@ class ServidorController extends Controller
             'ILHA DE ITAMARACÁ',
             'ARAÇOIABA',
         ];
-        $rmr_id = [ 
+        $rmr_id = [
             1,
             5,
             8,
@@ -68,72 +72,82 @@ class ServidorController extends Controller
         ];
         $modalidades = Modalidades::orderBy('modalidade')->get();
         $inscricoes = Inscricao::where('user_id', \Auth::user()->id)->get();
-        return view('inscricao1', compact('modalidades','inscricoes','rmr', 'rmr_id'));
+        return view('inscricao1', compact('modalidades', 'inscricoes', 'rmr', 'rmr_id'));
     }
-    public function inscricao1_store(Request $request){
+    public function inscricao1_store(Request $request)
+    {
         /* Valida se está no periodo de inscrições */
         $data_inicial_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_INICIO_PREINSC', '2018-08-20 00:00:00'));
         $data_final_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_TERMINO_PREINSC', '2018-08-24 23:59:59'));
         $agora = Carbon::now();
-        if ($agora->lt($data_inicial_insc)){
+        if ($agora->lt($data_inicial_insc)) {
             $msg_erro = 'As inscrições ainda não estão abertas.';
             return redirect()->route('preinscricao')->withErrors([$msg_erro]);
         }
-        if ($agora->gt($data_final_insc)){
+        if ($agora->gt($data_final_insc)) {
             $msg_erro = 'As inscrições estão encerradas.';
             return redirect()->route('preinscricao')->withErrors([$msg_erro]);
         }
         DB::beginTransaction();
-        try{
+        try {
             Inscricao::where('user_id', \Auth::user()->id)->delete();
-            if(count($request->modalidade)>0){
-                foreach($request->modalidade as $modalidade){
+            if (count($request->modalidade) > 0) {
+                foreach ($request->modalidade as $modalidade) {
                     Inscricao::create([
                         'user_id' => \Auth::user()->id,
                         'modalidade_id' => $modalidade
                     ]);
                 }
-            } 
-            if(isset($request->diarias) && $request->diarias == 'sim'){
+            }
+            if (isset($request->diarias) && $request->diarias == 'sim') {
                 \Auth::user()->solicitou_diarias = 1;
                 \Auth::user()->save();
-            }else{
+            } else {
                 \Auth::user()->solicitou_diarias = 0;
                 \Auth::user()->save();
             }
             DB::commit();
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
             return redirect()->route('preinscricao')->withErrors(['Falha na inserção das modalidades. Favor entrar em contato com a comissão.']);
         }
-        return redirect()->route('home')->with('sucesso','As modalidades foram atualizadas e confirmadas.');
+        return redirect()->route('home')->with('sucesso', 'As modalidades foram atualizadas e confirmadas.');
     }
-    public function perfil_index(){
+    public function perfil_index()
+    {
         return view('perfil');
     }
-    public function atualizar_perfil(Request $request){
+    public function atualizar_perfil(Request $request)
+    {
         /* Valida se está no periodo de inscrições */
         $data_inicial_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_INICIO_PREINSC', '2018-08-20 00:00:00'));
-        $data_final_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_TERMINO_PREINSC', '2018-08-24 23:59:59'));
+        $data_final_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_TERMINO_INSC', '2018-08-24 23:59:59'));
         $agora = Carbon::now();
-        if ($agora->lt($data_inicial_insc)){
+        if ($agora->lt($data_inicial_insc)) {
             $msg_erro = 'As alterações ainda não estão abertas.';
-            return redirect()->route('form_endereco')->withErrors([$msg_erro]);
+            return redirect()->route('home')->withErrors([$msg_erro]);
         }
-        if ($agora->gt($data_final_insc)){
+        if ($agora->gt($data_final_insc)) {
             $msg_erro = 'As alterações estão encerradas.';
-            return redirect()->route('form_endereco')->withErrors([$msg_erro]);
+            return redirect()->route('home')->withErrors([$msg_erro]);
         }
-        $email_backup = \Auth::user()->email;
-        \Auth::user()->update($request->all());
-        \Auth::user()->endereco_confirmado = TRUE;
-        \Auth::user()->save();
+        DB::beginTransaction();
+        try {
+            $email_backup = \Auth::user()->email;
+            \Auth::user()->update($request->all());
+            \Auth::user()->endereco_confirmado = TRUE;
+            \Auth::user()->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->route('home')->withErrors(['Falha na atualização do perfil. Favor entrar em contato com a comissão. Código SC143.']);
+        }
         /*if(\Auth::user()->email != $email_backup){
             if(!is_null(\Auth::user()->email)){
                 \Mail::to(\Auth::user())->queue(new \App\Mail\EmailUpdated(\Auth::user()));
             }
         }*/
-        return redirect()->route('home')->with('sucesso','Seus enderço foi atualizado e confirmado.');
+        return redirect()->route('home')->with('sucesso', 'Seus perfil foi atualizado e confirmado.');
     }
     public function inscricao_final()
     {
@@ -141,10 +155,10 @@ class ServidorController extends Controller
         if (\Gate::denies('preinscricao')) {
             return redirect()->route('home')->withErrors(['Apenas atletas que realizaram a pré-inscrição estão aptos a confirmar a inscrição nesta etapa.']);
         }
-        $modalidades = Modalidades::where('confirmado',TRUE)->orderBy('modalidade')->get();
+        $modalidades = Modalidades::where('confirmado', TRUE)->orderBy('modalidade')->get();
         $inscricoes = Inscricao::where('user_id', \Auth::user()->id)->get();
         $inscricoesfinais = Inscricaofinal::where('user_id', \Auth::user()->id)->get();
-        return view('inscricaofinal', compact('modalidades','inscricoes','inscricoesfinais','rmr'));
+        return view('inscricaofinal', compact('modalidades', 'inscricoes', 'inscricoesfinais', 'rmr'));
     }
     public function inscricao_final_store(Request $request)
     {
@@ -156,21 +170,21 @@ class ServidorController extends Controller
         $data_inicial_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_INICIO_INSC', '2018-08-20 00:00:00'));
         $data_final_insc = Carbon::createFromFormat('Y-m-d H:i:s', env('DT_TERMINO_INSC', '2018-08-24 23:59:59'));
         $agora = Carbon::now();
-        if ($agora->lt($data_inicial_insc)){
+        if ($agora->lt($data_inicial_insc)) {
             $msg_erro = 'As inscrições ainda não estão abertas.';
             return redirect()->route('inscricao1')->withErrors([$msg_erro]);
         }
-        if ($agora->gt($data_final_insc)){
+        if ($agora->gt($data_final_insc)) {
             $msg_erro = 'As inscrições estão encerradas.';
             return redirect()->route('inscricao1')->withErrors([$msg_erro]);
         }
         DB::beginTransaction();
-        try{
+        try {
             Inscricaofinal::where('user_id', \Auth::user()->id)->delete();
             $inscricoes = Inscricao::where('user_id', \Auth::user()->id)->get();
-            if($request->modalidade && count($request->modalidade)>0){
-                foreach($request->modalidade as $modalidade){
-                    if(count($inscricoes->where('modalidade_id', $modalidade))>0){
+            if ($request->modalidade && count($request->modalidade) > 0) {
+                foreach ($request->modalidade as $modalidade) {
+                    if (count($inscricoes->where('modalidade_id', $modalidade)) > 0) {
                         Inscricaofinal::create([
                             'user_id' => \Auth::user()->id,
                             'modalidade_id' => $modalidade
@@ -186,11 +200,10 @@ class ServidorController extends Controller
                 \Auth::user()->save();
             } */
             DB::commit();
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
             return redirect()->route('inscricao1')->withErrors(['Falha na inserção das modalidades. Favor entrar em contato com a comissão.']);
         }
-        return redirect()->route('home')->with('sucesso','As modalidades foram atualizadas e confirmadas.');
+        return redirect()->route('home')->with('sucesso', 'As modalidades foram atualizadas e confirmadas.');
     }
-
 }
