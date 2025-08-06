@@ -16,7 +16,7 @@
             <p>{{ config('app.name') }}</p>
         </header>
         <section>
-            @if (env('RELATORIOS_INSC_FINAL', true)))
+            @if (env('RELATORIOS_INSC_FINAL', true))
                 <h1>Relação de inscritos</h1>
             @else
                 <h1>Relação de pré-inscritos</h1>

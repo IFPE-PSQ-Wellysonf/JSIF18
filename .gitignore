@@ -14,3 +14,4 @@ yarn-error.log
 /database/seeds/UsersTableSeeder*
 composer.phar
 composer.lock
+public/.well-known/
